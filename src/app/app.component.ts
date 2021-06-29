@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from './api.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'crud';
+  
+  constructor(private getApi:ApiService)
+  {}
+  poastAray=[];
+  ngOnInit(){
+    this.getApi.getnew().subscribe((res)=>{
+      
+ this.poastAray=res
+
+    })
+  }
 }
+ 
